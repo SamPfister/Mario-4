@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+
 using System.Threading;
 using UnityEngine;
 
@@ -15,15 +16,17 @@ public class PlayerMover : MonoBehaviour
 
     void Start()
     {
-
-        controller = GetComponent<CharacterController>();
+      controller = GetComponent<CharacterController>();
     }
 
 
-    void Update()
+    void LateUpdate()
     {
+        float yStore = moveDirection.y;
+        moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")+ transform.right*Input.GetAxisRaw("Horizontal"));
 
-        moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
+        moveDirection = moveDirection.normalized * moveSpeed;
+        moveDirection.y = yStore;
 
         if (controller.isGrounded)
         {

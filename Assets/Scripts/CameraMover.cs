@@ -13,6 +13,8 @@ public class CameraMover : MonoBehaviour
 
     public float mouseSens;
 
+    public Transform pivot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,24 +22,42 @@ public class CameraMover : MonoBehaviour
         {
             offset = target.position - transform.position;
         }
+        pivot.transform.position = target.transform.position;
+        pivot.transform.parent = target.transform;
+
+        Cursor.lockState = CursorLockMode.Locked;
         
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        // get x pos of mmouse and rotate the target
         float horizontal = Input.GetAxis("Mouse X") * mouseSens;
-        float vertical = Input.GetAxis("Mouse Y") * mouseSens;
-        target.Rotate(-vertical, horizontal, 0);
-        //move camera based on rotation of target and orig. offset
-        float desiredYAngle = target.eulerAngles.y;
-        float desiredXAngle = target.eulerAngles.x;
-        Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
-        transform.position = target.position - (rotation*offset);
+        target.Rotate(0, horizontal, 0);
 
-        //target.Rotate(0, horizontal, vertical);
-        //transform.position = target.position - offset;
+        float vertical = Input.GetAxis("Mouse Y") * mouseSens;
+        pivot.Rotate(-vertical, 0, 0);
+
+        if(pivot.rotation.eulerAngles.x > 60f && pivot.rotation.eulerAngles.x < 180f)
+        {
+            pivot.rotation = Quaternion.Euler(60f, 0, 0);
+        }
+
+        if (pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 330f)
+        {
+            pivot.rotation = Quaternion.Euler(330f, 0, 0);
+        }
+
+        float desiredYAngle = pivot.eulerAngles.y;
+        float desiredXAngle = pivot.eulerAngles.x;
+
+        Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
+
+        transform.position = target.position - (rotation*offset);
+        if(transform.position.y  < target.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, target.position.y-0.5f, transform.position.z);
+        }
         transform.LookAt(target);
     }
 }
