@@ -43,12 +43,12 @@ public class CameraMover : MonoBehaviour
             pivot.rotation = Quaternion.Euler(60f, 0, 0);
         }
 
-        if (pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 330f)
-        {
+        if (pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 330f) {
+        
             pivot.rotation = Quaternion.Euler(330f, 0, 0);
         }
 
-        float desiredYAngle = pivot.eulerAngles.y;
+        float desiredYAngle = target.eulerAngles.y;
         float desiredXAngle = pivot.eulerAngles.x;
 
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
