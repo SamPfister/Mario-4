@@ -20,13 +20,28 @@ public class PlayerMover : MonoBehaviour
     }
 
 
-    void LateUpdate()
+    void Update()
     {
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            moveSpeed = 4f;
+        }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = 15f;
+        }
+        else
+        {
+            moveSpeed = 8f;
+        }
+
         float yStore = moveDirection.y;
         moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")+ transform.right*Input.GetAxisRaw("Horizontal"));
-
-        moveDirection = moveDirection.normalized * moveSpeed;
+        moveDirection = Vector3.ClampMagnitude(moveDirection, 1) * moveSpeed;
         moveDirection.y = yStore;
+ 
+
 
         if (controller.isGrounded)
         {
@@ -36,6 +51,7 @@ public class PlayerMover : MonoBehaviour
                 moveDirection.y = jumpForce;
             }
         }
+        
         moveDirection.y = moveDirection.y + Physics.gravity.y * gravityScale * Time.deltaTime;
         controller.Move(moveDirection*Time.deltaTime);
     }

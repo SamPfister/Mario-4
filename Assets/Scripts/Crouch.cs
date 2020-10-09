@@ -5,7 +5,8 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     CharacterController characterCollider;
-
+    public Vector3 temp;
+    public float currenty;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,17 @@ public class Crouch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            characterCollider.height = 0.8f;
+            characterCollider.height = 0.5f;
+            temp = transform.localScale;
+            temp.y = 0.6f;
+            transform.localScale = temp;
         }
         else
         {
             characterCollider.height = 1.8f;
+            temp = transform.localScale;
+            temp.y = 1f;
+            transform.localScale = temp;
         }
             
     }
