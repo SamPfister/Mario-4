@@ -17,7 +17,7 @@ public class Crouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetButton("Fire1"))
         {
             characterCollider.height = 0.5f;
             temp = transform.localScale;

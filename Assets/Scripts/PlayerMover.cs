@@ -23,11 +23,11 @@ public class PlayerMover : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetButton("Fire1"))
         {
             moveSpeed = 4f;
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        else if (Input.GetButton("Fire2"))
         {
             moveSpeed = 15f;
         }
