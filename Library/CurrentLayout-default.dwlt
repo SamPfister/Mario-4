@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 98
+  controlID: 78
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 107
+  controlID: 79
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 108
+  controlID: 80
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,7 +400,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6cafffff8cafffff40b0ffff42c4ffff4cc5ffff56c6ffff5ac7ffff64c8ffff6ec9ffff78caffff82cbffff8cccffff90cdffff62fbffff
+      m_ExpandedIDs: 24dcffffd4dcffff62fbffff423700005a3700004e3e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -48.908062, y: -13.701993, z: 2.026702}
+    m_Target: {x: -1.9091747, y: -83.73638, z: 111.867905}
     speed: 2
-    m_Value: {x: -48.908062, y: -13.701993, z: 2.026702}
+    m_Value: {x: -1.9091747, y: -83.73638, z: 111.867905}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -509,20 +509,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.1095888, y: 0.66602683, z: -0.09985582, w: -0.73102134}
+    m_Target: {x: 0.31862706, y: -0.011670191, z: 0.003935392, w: 0.9477871}
     speed: 2
-    m_Value: {x: -0.10959073, y: 0.6660385, z: -0.099857576, w: -0.7310342}
+    m_Value: {x: 0.31721446, y: -0.010253798, z: 0.0034421138, w: 0.94829214}
   m_Size:
-    m_Target: 36.639305
+    m_Target: 86.967545
     speed: 2
-    m_Value: 36.639305
+    m_Value: 86.967545
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.9652
-    m_SpeedNormalized: 0.48
+    m_Speed: 0.9055
+    m_SpeedNormalized: 0.45
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -629,21 +629,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/AllSkyFree
+    - Assets/Scripts
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 52
   m_LastFolders:
-  - Assets/AllSkyFree
+  - Assets/Scripts
   m_LastFoldersGridSize: 52
   m_LastProjectPath: C:\Users\SamPf\Documents\GitHub\PlatformerRepo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d8430000
-    m_LastClickedID: 17368
-    m_ExpandedIDs: 00000000d037000000ca9a3b
+    m_SelectedIDs: 08380000
+    m_LastClickedID: 14344
+    m_ExpandedIDs: 00000000fc37000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -671,7 +671,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d0370000
+    m_ExpandedIDs: 00000000fc370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
