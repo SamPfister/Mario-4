@@ -1894,7 +1894,7 @@ MonoBehaviour:
   target: {fileID: 1855655737}
   offset: {x: 0, y: 0, z: 0}
   useOffsetValues: 0
-  mouseSens: 5
+  mouseSens: 10
   pivot: {fileID: 1864062969}
 --- !u!1 &974016581
 GameObject:

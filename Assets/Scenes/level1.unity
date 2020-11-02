@@ -157,7 +157,7 @@ MonoBehaviour:
   target: {fileID: 1435341699}
   offset: {x: 0, y: 0, z: 0}
   useOffsetValues: 0
-  mouseSens: 5
+  mouseSens: 10
   pivot: {fileID: 1846062018}
 --- !u!81 &396683969
 AudioListener:
