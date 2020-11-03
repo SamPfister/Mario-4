@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
-
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,21 +21,37 @@ public class PlayerMover : MonoBehaviour
       controller = GetComponent<CharacterController>();
     }
 
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (!controller.isGrounded && hit.normal.y < 0.3f)
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.y += jumpForce* 1.5f;
+                    if(moveDirection.y >= 12)
+                    {
+                        moveDirection.y = 12;
+                    }
+                }          
+            }
+    } 
     void Update()
     {
-
-        if (Input.GetButton("Fire1"))
+        if (controller.isGrounded)
         {
-            moveSpeed = 4f;
-        }
-        else if (Input.GetButton("Fire2"))
-        {
-            moveSpeed = 15f;
+            if (Input.GetButton("Fire1"))
+            {
+                moveSpeed = 4f;
+            }
+            
+            else
+            {
+                moveSpeed = 12f;
+            }
         }
         else
         {
-            moveSpeed = 8f;
+            moveSpeed = 12f;
         }
 
         float yStore = moveDirection.y;
@@ -49,7 +66,7 @@ public class PlayerMover : MonoBehaviour
             moveDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
             {
-                moveDirection.y = jumpForce;
+                moveDirection.y += jumpForce;
             }
         }
         
@@ -64,4 +81,6 @@ public class PlayerMover : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+
+    
 }

@@ -32,10 +32,10 @@ public class CameraMover : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        float horizontal = Input.GetAxis("Mouse X") * mouseSens;
+        float horizontal = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime * 100;
         target.Rotate(0, horizontal, 0);
 
-        float vertical = Input.GetAxis("Mouse Y") * mouseSens;
+        float vertical = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime * 100;
         pivot.Rotate(-vertical, 0, 0);
 
         if(pivot.rotation.eulerAngles.x > 60f && pivot.rotation.eulerAngles.x < 180f)
