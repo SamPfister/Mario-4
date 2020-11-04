@@ -25,13 +25,17 @@ public class PlayerMover : MonoBehaviour
         {
             if (!controller.isGrounded && hit.normal.y < 0.3f)
             {
-                if (Input.GetButtonDown("Jump"))
+                if(Input.GetButton("Fire1"))
                 {
-                    moveDirection.y += jumpForce* 1.5f;
-                    if(moveDirection.y >= 12)
+                    moveDirection.y = 0;
+                }
+                if (Input.GetButtonDown("Jump"))
                     {
-                        moveDirection.y = 12;
-                    }
+                        moveDirection.y += jumpForce* 1.5f;
+                        if(moveDirection.y >= 12)
+                        {
+                            moveDirection.y = 12;
+                        }
                 }          
             }
     } 
@@ -46,7 +50,7 @@ public class PlayerMover : MonoBehaviour
             
             else
             {
-                moveSpeed = 12f;
+                moveSpeed = 15f;
             }
         }
         else
