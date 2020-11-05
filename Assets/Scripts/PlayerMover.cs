@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMover : MonoBehaviour
 {
     private Vector3 moveDirection;
-    public float moveSpeed;
+    public float moveSpeed = 15f;
     public float jumpForce;
     public CharacterController controller;
     public float gravityScale;
@@ -38,7 +38,24 @@ public class PlayerMover : MonoBehaviour
                         }
                 }          
             }
+
+        switch (hit.gameObject.tag) 
+        {
+            case "JumpPad":
+                jumpForce = 24f;
+                break;
+            case "SpeedBoost":
+                moveSpeed = 30f;
+                break;
+            case "Ground":
+                jumpForce = 8f;
+                moveSpeed = 15f;
+                break;
+        }
+
     } 
+
+
     void Update()
     {
         if (controller.isGrounded)
@@ -48,15 +65,9 @@ public class PlayerMover : MonoBehaviour
                 moveSpeed = 4f;
             }
             
-            else
-            {
-                moveSpeed = 15f;
-            }
+            
         }
-        else
-        {
-            moveSpeed = 12f;
-        }
+        
 
         float yStore = moveDirection.y;
         moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")+ transform.right*Input.GetAxisRaw("Horizontal"));
@@ -84,7 +95,5 @@ public class PlayerMover : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-    }
-
-    
+    }   
 }

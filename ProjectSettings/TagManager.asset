@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - exit1
+  - JumpPad
+  - SpeedBoost
+  - Ground
   layers:
   - Default
   - TransparentFX
