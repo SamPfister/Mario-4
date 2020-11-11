@@ -90,7 +90,10 @@ public class PlayerMover : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.CompareTag("exit0"))
+        {
+            SceneManager.LoadScene(0);
+        }
         if (other.gameObject.CompareTag("exit1"))
         {
             SceneManager.LoadScene(1);
