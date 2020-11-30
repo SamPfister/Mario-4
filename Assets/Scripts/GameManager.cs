@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int currentGold;
     public Text goldText;
+    public Text healthText;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +27,11 @@ public class GameManager : MonoBehaviour
     {
         currentGold += goldToAdd;
         goldText.text = "Gold: " + currentGold;
+    }
+
+    public void AddHealth(int currentHealth)
+    {
+        
+        healthText.text = "Health: " + currentHealth;
     }
 }
