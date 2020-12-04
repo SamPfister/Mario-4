@@ -94,6 +94,10 @@ public class PlayerMover : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+        if (other.gameObject.CompareTag("exit2"))
+        {
+            SceneManager.LoadScene(2);
+        }
     } 
    
 }

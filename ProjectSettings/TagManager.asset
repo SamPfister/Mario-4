@@ -9,6 +9,7 @@ TagManager:
   - SpeedBoost
   - Ground
   - exit0
+  - exit2
   layers:
   - Default
   - TransparentFX
