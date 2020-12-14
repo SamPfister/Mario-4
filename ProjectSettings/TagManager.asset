@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - exit0
   - exit2
+  - exit3
   layers:
   - Default
   - TransparentFX

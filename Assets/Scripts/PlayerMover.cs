@@ -98,6 +98,9 @@ public class PlayerMover : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        if (other.gameObject.CompareTag("exit3"))
+        {
+            SceneManager.LoadScene(3);
+        }
     } 
-   
 }
