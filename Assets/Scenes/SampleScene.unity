@@ -3645,7 +3645,7 @@ GameObject:
   - component: {fileID: 1627544299}
   m_Layer: 0
   m_Name: Environment
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3702,7 +3702,7 @@ GameObject:
   - component: {fileID: 1628458698}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4386,7 +4386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af04407c937ba2438c59300703a8332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 100
   maxSpeed: 20
   jumpForce: 80
   playerGravity: {x: 0, y: -10, z: 0}

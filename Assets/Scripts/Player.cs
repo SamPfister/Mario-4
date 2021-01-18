@@ -17,10 +17,8 @@ public class Player : MonoBehaviour
     {
  
         playerBody = GetComponent<Rigidbody>();
-
         //this is what controls the gravity on the player
         playerGravity = new Vector3(0f, -6f, 0f);
- 
         moveSpeed = 100f;
         maxSpeed = 20f;
         jumpForce = 80f;
@@ -28,8 +26,10 @@ public class Player : MonoBehaviour
 }
 
     // Update is called once per frame
+    
     void Update()
     {
+
         // credits to this link ofr the movement input stuff https://answers.unity.com/questions/1445397/why-is-it-so-hard-to-make-a-rigidbody-jump-in-the.html
         // and this one for the x and z speed cap https://answers.unity.com/questions/772165/constrain-velocity-on-only-x-z-let-the-jump-fly-fr.html
 
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         temp.y = tempy;
         newVel = temp;
         
-        
+        //code for jumping
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse );
@@ -65,16 +65,44 @@ public class Player : MonoBehaviour
 
         playerBody.AddForce(newVel + playerGravity);
 
+        // this is the code that controls crouching
+        //if LCNTRL is pressed, character's height, speed, and jump height are halved
+        if (Input.GetButton("Fire1"))
+        {
+            temp = transform.localScale;
+            temp.y = 0.5f;
+            transform.localScale = temp;
+            maxSpeed = 10f;
+            jumpForce = 40f;
+        }
+        else
+        {
+            temp = transform.localScale;
+            temp.y = 1f;
+            transform.localScale = temp;
+            maxSpeed = 20f;
+            jumpForce = 80f;
+        }
+
     }
+
+
 
     //These two methods are used for checking if the player is colliding with something
     // used to limit ability of player to air-strafe
     void OnCollisionEnter(Collision other)
     {
-        isGrounded = true;
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        
     }
     void OnCollisionExit(Collision other)
     {
-        isGrounded = false;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
