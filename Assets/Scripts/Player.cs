@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
  
         playerBody = GetComponent<Rigidbody>();
         //this is what controls the gravity on the player
-        playerGravity = new Vector3(0f, -6f, 0f);
+        playerGravity = new Vector3(0f, -5f, 0f);
         moveSpeed = 100f;
         maxSpeed = 20f;
         jumpForce = 10f;
@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
         {
             jumpForce = 30f;
         }
-
     }
     void OnCollisionExit(Collision other)
     {
