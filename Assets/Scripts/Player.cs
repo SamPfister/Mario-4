@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float maxSpeed;
     public float jumpForce; 
     public Vector3 playerGravity;
+    public Vector3 newVel;
     public bool isGrounded;
     
  
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
         playerGravity = new Vector3(0f, -6f, 0f);
         moveSpeed = 100f;
         maxSpeed = 20f;
-        jumpForce = 80f;
+        jumpForce = 10f;
 
 }
 
@@ -30,7 +31,8 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        // credits to this link ofr the movement input stuff https://answers.unity.com/questions/1445397/why-is-it-so-hard-to-make-a-rigidbody-jump-in-the.html
+
+        // credits to this link for the movement input stuff https://answers.unity.com/questions/1445397/why-is-it-so-hard-to-make-a-rigidbody-jump-in-the.html
         // and this one for the x and z speed cap https://answers.unity.com/questions/772165/constrain-velocity-on-only-x-z-let-the-jump-fly-fr.html
 
         if (isGrounded)
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
         float strafe = Input.GetAxisRaw("Horizontal");
         float movement = Input.GetAxisRaw("Vertical");
 
-        Vector3 newVel = transform.forward * movement + transform.right * strafe;
+        newVel = transform.forward * movement + transform.right * strafe;
         newVel = newVel.normalized * moveSpeed;
 
         //speed limiter, leaves y unaffected
@@ -63,7 +65,7 @@ public class Player : MonoBehaviour
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse );
         }
 
-        playerBody.AddForce(newVel + playerGravity);
+        //playerBody.AddForce(newVel + playerGravity);
 
         // this is the code that controls crouching
         //if LCNTRL is pressed, character's height, speed, and jump height are halved
@@ -73,7 +75,7 @@ public class Player : MonoBehaviour
             temp.y = 0.5f;
             transform.localScale = temp;
             maxSpeed = 10f;
-            jumpForce = 40f;
+            jumpForce = 5f;
         }
         else
         {
@@ -81,11 +83,15 @@ public class Player : MonoBehaviour
             temp.y = 1f;
             transform.localScale = temp;
             maxSpeed = 20f;
-            jumpForce = 80f;
+            jumpForce = 10f;
         }
 
     }
 
+    void LateUpdate()
+    {
+        playerBody.AddForce(newVel + playerGravity);
+    }
 
 
     //These two methods are used for checking if the player is colliding with something
