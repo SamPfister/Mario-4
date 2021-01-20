@@ -102,7 +102,16 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
         }
-        
+        if (other.gameObject.CompareTag("SpeedBoost"))
+        {
+            moveSpeed = 200f;
+            maxSpeed = 40f;
+        }
+        if (other.gameObject.CompareTag("JumpPad"))
+        {
+            jumpForce = 30f;
+        }
+
     }
     void OnCollisionExit(Collision other)
     {
