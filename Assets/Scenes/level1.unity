@@ -3078,9 +3078,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af04407c937ba2438c59300703a8332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  jumpForce: 0
-  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeed: 100
+  maxSpeed: 20
+  jumpForce: 10
+  playerGravity: {x: 0, y: 0, z: 0}
+  newVel: {x: 0, y: 0, z: 0}
+  isGrounded: 0
 --- !u!54 &1435341707
 Rigidbody:
   m_ObjectHideFlags: 0

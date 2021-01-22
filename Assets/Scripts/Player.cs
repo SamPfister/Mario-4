@@ -16,12 +16,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+        Application.targetFrameRate = 60;
         playerBody = GetComponent<Rigidbody>();
         //this is what controls the gravity on the player
         playerGravity = new Vector3(0f, -5f, 0f);
-        moveSpeed = 100f;
-        maxSpeed = 20f;
+        moveSpeed = 1000f;
+        maxSpeed = 40f;
         jumpForce = 10f;
 
 }
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
-        playerBody.AddForce(newVel + playerGravity);
+        playerBody.AddForce(newVel*2 + playerGravity);
     }
 
 
