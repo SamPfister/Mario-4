@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class Player : MonoBehaviour
     public Vector3 playerGravity;
     public Vector3 newVel;
     public bool isGrounded;
-    
- 
+    public bool applyFriction;
+    public bool speedBoosted;
+    public bool jumpPad;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,7 @@ public class Player : MonoBehaviour
         //this is what controls the gravity on the player
         playerGravity = new Vector3(0f, -5f, 0f);
         moveSpeed = 1000f;
-        maxSpeed = 40f;
+        maxSpeed = 20f;
         jumpForce = 10f;
 
 }
@@ -30,11 +34,8 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-
-
-        // credits to this link for the movement input stuff https://answers.unity.com/questions/1445397/why-is-it-so-hard-to-make-a-rigidbody-jump-in-the.html
-        // and this one for the x and z speed cap https://answers.unity.com/questions/772165/constrain-velocity-on-only-x-z-let-the-jump-fly-fr.html
-
+        //changes movement speed depending on if player is grounded or not
+        // makes airstrafing not op
         if (isGrounded)
         {
             moveSpeed = 100f;
@@ -65,8 +66,6 @@ public class Player : MonoBehaviour
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse );
         }
 
-        //playerBody.AddForce(newVel + playerGravity);
-
         // this is the code that controls crouching
         //if LCNTRL is pressed, character's height, speed, and jump height are halved
         if (Input.GetButton("Fire1"))
@@ -86,10 +85,25 @@ public class Player : MonoBehaviour
             jumpForce = 10f;
         }
 
+        // this is the part that checks whether or not to apply friction
+        // to apply friction, no movement input is pressed and the player is grounded
+        if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0 && isGrounded)
+        {
+            applyFriction = true;
+        }
+        else
+        {
+            applyFriction = false;
+        }
     }
 
     void LateUpdate()
     {
+        if (applyFriction)
+        {
+            // applying friction simply reduces the velocity by 5% each frame
+            playerBody.velocity -= 0.05f * playerBody.velocity;
+        }
         playerBody.AddForce(newVel*2 + playerGravity);
     }
 
@@ -104,19 +118,29 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("SpeedBoost"))
         {
-            moveSpeed = 200f;
-            maxSpeed = 40f;
+            isGrounded = true;
+            speedBoosted = true;
+
         }
         if (other.gameObject.CompareTag("JumpPad"))
         {
-            jumpForce = 30f;
+            isGrounded = true;
+            jumpPad = true;
         }
     }
     void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("SpeedBoost") || other.gameObject.CompareTag("JumpPad"))
         {
             isGrounded = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "exit0")
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }
