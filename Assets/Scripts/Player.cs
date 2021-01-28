@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         // makes airstrafing not op
         if (isGrounded)
         {
-            moveSpeed = 100f;
+                moveSpeed = 100f;        
         }
         else
         {
@@ -104,6 +104,14 @@ public class Player : MonoBehaviour
             // applying friction simply reduces the velocity by 5% each frame
             playerBody.velocity -= 0.05f * playerBody.velocity;
         }
+        if (speedBoosted)
+        {
+            playerBody.AddForce(newVel * 2 + playerGravity);
+        }
+        if (jumpPad)
+        {
+            playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
         playerBody.AddForce(newVel*2 + playerGravity);
     }
 
@@ -130,7 +138,19 @@ public class Player : MonoBehaviour
     }
     void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("SpeedBoost") || other.gameObject.CompareTag("JumpPad"))
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+        if (other.gameObject.CompareTag("SpeedBoost"))
+        {
+            speedBoosted = false;
+        }
+        if (other.gameObject.CompareTag("JumpPad"))
+        {
+            jumpPad = false;
+        }
+        else
         {
             isGrounded = false;
         }
