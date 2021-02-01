@@ -11,6 +11,7 @@ TagManager:
   - exit0
   - exit2
   - exit3
+  - wall
   layers:
   - Default
   - TransparentFX

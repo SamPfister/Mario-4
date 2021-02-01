@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public bool applyFriction;
     public bool speedBoosted;
     public bool jumpPad;
+    public bool onWall;
 
 
     // Start is called before the first frame update
@@ -106,11 +107,29 @@ public class Player : MonoBehaviour
         }
         if (speedBoosted)
         {
+            // adds another velocity force if the player is on a speed pad
             playerBody.AddForce(newVel * 2 + playerGravity);
         }
         if (jumpPad)
         {
+            // makes the player jump if they are on a jump pad
             playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+
+        //this is the wall jump code
+        //if the player is exclusively on a wall
+        if(onWall && !isGrounded)
+        {
+            //if they are holding left (on a lefthand wall), push them up and to the right
+            if(Input.GetAxisRaw("Horizontal") < 0 && Input.GetButton("Jump"))
+            {
+                playerBody.AddForce(Vector3.up * jumpForce*0.7f + (transform.right * jumpForce*0.5f), ForceMode.Impulse);
+            }
+            //if they are holding right (on a righthand wall), push them up and to the left
+            if (Input.GetAxisRaw("Horizontal") > 0 && Input.GetButton("Jump"))
+            {
+                playerBody.AddForce(Vector3.up * jumpForce * 0.7f - (transform.right * jumpForce * 0.5f), ForceMode.Impulse);
+            }
         }
         playerBody.AddForce(newVel*2 + playerGravity);
     }
@@ -135,6 +154,10 @@ public class Player : MonoBehaviour
             isGrounded = true;
             jumpPad = true;
         }
+        if (other.gameObject.CompareTag("wall"))
+        {
+            onWall = true;
+        }
     }
     void OnCollisionExit(Collision other)
     {
@@ -149,6 +172,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("JumpPad"))
         {
             jumpPad = false;
+        }
+        if (other.gameObject.CompareTag("wall"))
+        {
+            onWall = false;
         }
         else
         {
