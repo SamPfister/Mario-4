@@ -28,8 +28,7 @@ public class Player : MonoBehaviour
         moveSpeed = 1000f;
         maxSpeed = 20f;
         jumpForce = 10f;
-
-}
+    }
 
     // Update is called once per frame
     
@@ -120,6 +119,14 @@ public class Player : MonoBehaviour
         //if the player is exclusively on a wall
         if(onWall && !isGrounded)
         {
+            if(Input.GetAxisRaw("Horizontal") != 0 && Input.GetButton("Fire1"))
+            {
+                //when crouched and holding either direction, set newvel's y component to cancel our gravity
+                Vector3 temp = newVel;
+                float tempy = temp.y;
+                temp.y = -playerGravity.y + 1;
+                newVel = temp;
+            }
             //if they are holding left (on a lefthand wall), push them up and to the right
             if(Input.GetAxisRaw("Horizontal") < 0 && Input.GetButton("Jump"))
             {
