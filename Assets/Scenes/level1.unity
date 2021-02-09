@@ -569,7 +569,7 @@ MonoBehaviour:
   target: {fileID: 1208655211}
   offset: {x: 0, y: 0, z: 0}
   useOffsetValues: 0
-  mouseSens: 10
+  mouseSens: 5
   pivot: {fileID: 1846062018}
 --- !u!81 &396683969
 AudioListener:
@@ -630,7 +630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396683967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 31.1, z: 26.51}
+  m_LocalPosition: {x: 0, y: 5.3, z: -18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1846062018}
@@ -2572,7 +2572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208655205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 28.6, z: 36.510002}
+  m_LocalPosition: {x: 0, y: 2.8000011, z: -8.199997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

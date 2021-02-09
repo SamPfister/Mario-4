@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
         //this is what controls the gravity on the player
         playerGravity = new Vector3(0f, -5f, 0f);
-        moveSpeed = 1000f;
+        moveSpeed = 100f;
         maxSpeed = 20f;
         jumpForce = 10f;
     }
@@ -195,6 +195,18 @@ public class Player : MonoBehaviour
         if (other.tag == "exit0")
         {
             SceneManager.LoadScene(1);
+        }
+        if (other.tag == "exit1")
+        {
+            SceneManager.LoadScene(2);
+        }
+        if (other.tag == "exit2")
+        {
+            SceneManager.LoadScene(3);
+        }
+        if (other.tag == "exit3")
+        {
+            SceneManager.LoadScene(4);
         }
     }
 }
