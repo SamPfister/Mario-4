@@ -63,9 +63,9 @@
      <Compile Include="Assets\Scripts\mainmenu.cs" />
      <Compile Include="Assets\Scripts\HealthManager.cs" />
      <Compile Include="Assets\Scripts\GoldPickup.cs" />
-     <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\mousehover.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
+     <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/SamPf/Documents/GitHub/PlatformerRepo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

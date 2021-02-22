@@ -4,14 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - exit1
   - JumpPad
   - SpeedBoost
   - Ground
-  - exit0
-  - exit2
-  - exit3
   - wall
+  - exitPortal
+  - killPlane
   layers:
   - Default
   - TransparentFX
