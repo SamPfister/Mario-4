@@ -2485,6 +2485,7 @@ MonoBehaviour:
   speedBoosted: 0
   jumpPad: 0
   onWall: 0
+  sceneToLoad: 0
 --- !u!54 &1208655207
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3351,7 +3352,7 @@ GameObject:
   - component: {fileID: 1593387866}
   m_Layer: 0
   m_Name: levelTrigger
-  m_TagString: exit2
+  m_TagString: exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3932,7 +3933,7 @@ GameObject:
   - component: {fileID: 1967218384}
   m_Layer: 0
   m_Name: Cube (45)
-  m_TagString: exit1
+  m_TagString: killplane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

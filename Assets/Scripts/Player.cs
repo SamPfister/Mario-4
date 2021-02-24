@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool speedBoosted;
     public bool jumpPad;
     public bool onWall;
+    public int sceneToLoad;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
         moveSpeed = 100f;
         maxSpeed = 20f;
         jumpForce = 10f;
+        
     }
 
     // Update is called once per frame
@@ -192,21 +194,16 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "exit0")
+        if (other.tag == "exit")
         {
-            SceneManager.LoadScene(1);
+            PlayerPrefs.SetInt("levelsCompleted", PlayerPrefs.GetInt("levelsCompleted") + 1);
+            sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
+            SceneManager.LoadScene(sceneToLoad);
         }
-        if (other.tag == "exit1")
+        if (other.tag == "killplane")
         {
-            SceneManager.LoadScene(2);
-        }
-        if (other.tag == "exit2")
-        {
-            SceneManager.LoadScene(3);
-        }
-        if (other.tag == "exit3")
-        {
-            SceneManager.LoadScene(4);
+            sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }

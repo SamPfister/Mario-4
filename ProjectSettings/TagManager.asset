@@ -10,6 +10,9 @@ TagManager:
   - wall
   - exitPortal
   - killPlane
+  - exit1
+  - exit
+  - killplane
   layers:
   - Default
   - TransparentFX
