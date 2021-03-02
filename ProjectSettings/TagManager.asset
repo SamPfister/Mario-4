@@ -9,10 +9,11 @@ TagManager:
   - Ground
   - wall
   - exitPortal
-  - killPlane
   - exit1
   - exit
   - killplane
+  - hubGate
+  - exit2
   layers:
   - Default
   - TransparentFX

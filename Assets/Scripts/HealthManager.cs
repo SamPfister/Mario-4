@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class HealthManager : MonoBehaviour
     public int maxHealth;
     private bool isRespawning;
     public Vector3 respawnPoint;
-
+    public int sceneToLoad;
     public PlayerMover thePlayer;
     // Start is called before the first frame update
     void Start()
@@ -56,13 +57,7 @@ public class HealthManager : MonoBehaviour
 
     public void respawn()
     {
-        thePlayer.transform.position = respawnPoint;
-        currentHealth = maxHealth;
-        GameObject player = GameObject.Find("Player");
-        CharacterController charController = player.GetComponent<CharacterController>();
-        charController.enabled = false;
-        thePlayer.transform.position = respawnPoint;
-        charController.enabled = true;
-        FindObjectOfType<GameManager>().AddHealth(currentHealth);
+        sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

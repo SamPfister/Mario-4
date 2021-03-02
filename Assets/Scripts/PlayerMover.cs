@@ -11,12 +11,9 @@ using UnityEngine.UI;
 
 public class PlayerMover : MonoBehaviour
 {
-    private Vector3 moveDirection;
-    public float moveSpeed = 15f;
-    public float jumpForce;
     public CharacterController controller;
-    public float gravityScale;
-
+    //this used to be the movement controller, but I scrapped it to use rigidbody stuff
+    //I'm keeping this so that health managing etc. works, because of character controller
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -27,12 +24,6 @@ public class PlayerMover : MonoBehaviour
         if (other.gameObject.CompareTag("exitPortal"))
         {
             PlayerPrefs.SetInt("levelsComplete", PlayerPrefs.GetInt("levelsComplete") + 1);
-            
-
-
-        }
-        
-       
-    }
-    
+        } 
+    } 
 }

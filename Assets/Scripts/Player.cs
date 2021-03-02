@@ -194,11 +194,27 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "hubGate")
+        {
+            if (PlayerPrefs.GetInt("levelsCompleted") > 1)
+            {
+                PlayerPrefs.SetInt("levelsCompleted", PlayerPrefs.GetInt("levelsCompleted") + 1);
+                sceneToLoad = PlayerPrefs.GetInt("levelsCompleted");
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("levelsCompleted", PlayerPrefs.GetInt("levelsCompleted") + 1);
+                sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
+                SceneManager.LoadScene(sceneToLoad);
+            }
+
+        }
         if (other.tag == "exit")
         {
-            PlayerPrefs.SetInt("levelsCompleted", PlayerPrefs.GetInt("levelsCompleted") + 1);
-            sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
-            SceneManager.LoadScene(sceneToLoad);
+            int holder = PlayerPrefs.GetInt("levelsCompleted") + 1;
+            PlayerPrefs.SetInt("levelsCompleted", holder);           
+            SceneManager.LoadScene(holder + 1);
         }
         if (other.tag == "killplane")
         {

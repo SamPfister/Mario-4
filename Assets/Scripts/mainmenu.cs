@@ -9,7 +9,9 @@ public class mainmenu : MonoBehaviour
     public bool isResume;
 	public bool isNew;
     public bool isQuit;
-	
+	public int sceneToLoad;
+
+
 	void OnMouseUp()
 	{
 		if (isNew)
@@ -17,15 +19,15 @@ public class mainmenu : MonoBehaviour
 			// A new game overwrites any data from an existing game
 			// There is only one save file at a time
 			PlayerPrefs.DeleteAll();
-			PlayerPrefs.SetInt("levelsComplete", 0);
+			PlayerPrefs.SetInt("levelsComplete", 2);
 			PlayerPrefs.SetInt("lives", 0);
 			PlayerPrefs.SetInt("totalCoins", 0);
-			SceneManager.LoadScene(PlayerPrefs.GetInt("levelsComplete") + 1);
+			SceneManager.LoadScene(1);
 		}
         if (isResume)
         {
-			int sceneToLoad = PlayerPrefs.GetInt("levelsComplete") + 1;
-			SceneManager.LoadScene(sceneToLoad);
+			sceneToLoad = PlayerPrefs.GetInt("levelsComplete") + 1;
+			SceneManager.LoadScene(1);
 		}
 		if (isQuit)
 		{
