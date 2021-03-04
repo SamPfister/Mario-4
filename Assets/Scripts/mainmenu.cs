@@ -20,7 +20,7 @@ public class mainmenu : MonoBehaviour
 			// There is only one save file at a time
 			PlayerPrefs.DeleteAll();
 			PlayerPrefs.SetInt("levelsComplete", 2);
-			PlayerPrefs.SetInt("lives", 0);
+			PlayerPrefs.SetInt("lives", 5);
 			PlayerPrefs.SetInt("totalCoins", 0);
 			SceneManager.LoadScene(1);
 		}

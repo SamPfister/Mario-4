@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
 {
 
     public int currentHealth;
+    public int currentLives;
     public int maxHealth;
     private bool isRespawning;
     public Vector3 respawnPoint;
@@ -18,7 +19,9 @@ public class HealthManager : MonoBehaviour
     {
         currentHealth = maxHealth;
         FindObjectOfType<GameManager>().AddHealth(maxHealth);
-        respawnPoint = thePlayer.transform.position;
+
+        currentLives = PlayerPrefs.GetInt("lives");
+        FindObjectOfType<GameManager>().AddHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class HealthManager : MonoBehaviour
 
     public void respawn()
     {
+        PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives")-1);
         sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
         SceneManager.LoadScene(sceneToLoad);
     }
