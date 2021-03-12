@@ -21,7 +21,7 @@ public class HealthManager : MonoBehaviour
         FindObjectOfType<GameManager>().AddHealth(maxHealth);
 
         currentLives = PlayerPrefs.GetInt("lives");
-        FindObjectOfType<GameManager>().AddHealth(maxHealth);
+        FindObjectOfType<GameManager>().AddLife(currentLives);
     }
 
     // Update is called once per frame
@@ -35,7 +35,14 @@ public class HealthManager : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            respawn();
+            if(PlayerPrefs.GetInt("lives") > 0)
+            {
+                respawn();
+            }
+            else
+            {
+                gameOver();
+            }   
         }
 
         else
@@ -60,8 +67,18 @@ public class HealthManager : MonoBehaviour
 
     public void respawn()
     {
-        PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives")-1);
+        PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
         sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
         SceneManager.LoadScene(sceneToLoad);
     }
+
+    public void gameOver()
+    {
+        SceneManager.LoadScene(0);
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("levelsComplete", 2);
+        PlayerPrefs.SetInt("lives", 5);
+        PlayerPrefs.SetInt("totalCoins", 0);
+    }
+        
 }

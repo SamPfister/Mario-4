@@ -143,9 +143,6 @@ public class Player : MonoBehaviour
         playerBody.AddForce(newVel*2 + playerGravity);
     }
 
-
-    //These two methods are used for checking if the player is colliding with something
-    // used to limit ability of player to air-strafe
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Ground"))
@@ -168,6 +165,7 @@ public class Player : MonoBehaviour
             onWall = true;
         }
     }
+
     void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -177,18 +175,29 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("SpeedBoost"))
         {
             speedBoosted = false;
+            isGrounded = false;
         }
         if (other.gameObject.CompareTag("JumpPad"))
         {
             jumpPad = false;
+            isGrounded = false;
         }
         if (other.gameObject.CompareTag("wall"))
         {
             onWall = false;
+            isGrounded = false;
         }
         else
         {
             isGrounded = false;
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
     }
 
@@ -212,14 +221,29 @@ public class Player : MonoBehaviour
         }
         if (other.tag == "exit")
         {
+            int coinsToAdd = GameManager.currentGold;
+            PlayerPrefs.SetInt("totalCoins", coinsToAdd);
             int holder = PlayerPrefs.GetInt("levelsCompleted") + 1;
             PlayerPrefs.SetInt("levelsCompleted", holder);           
             SceneManager.LoadScene(holder + 1);
         }
         if (other.tag == "killplane")
         {
-            sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
-            SceneManager.LoadScene(sceneToLoad);
+            if(PlayerPrefs.GetInt("lives") > 0)
+            {
+                PlayerPrefs.SetInt("lives", PlayerPrefs.GetInt("lives") - 1);
+                sceneToLoad = PlayerPrefs.GetInt("levelsCompleted") + 1;
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            else {
+                SceneManager.LoadScene(0);
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.SetInt("levelsComplete", 2);
+                PlayerPrefs.SetInt("lives", 5);
+                PlayerPrefs.SetInt("totalCoins", 0);
+            }
         }
     }
+
+
 }
