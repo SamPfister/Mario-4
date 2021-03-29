@@ -8,12 +8,12 @@ public class GoldPickup : MonoBehaviour
 
     public int value;
     public GameObject pickupEffect;
-    public AudioClip collectSound;
-    AudioSource audioSource;
+    public AudioSource coin;
+    
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class GoldPickup : MonoBehaviour
             
             FindObjectOfType<GameManager>().AddGold(value);
             Instantiate(pickupEffect, transform.position, transform.rotation);
+            coin.Play();
             Destroy(gameObject);
         }
     }

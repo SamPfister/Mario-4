@@ -62,10 +62,13 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\mainmenu.cs" />
      <Compile Include="Assets\Scripts\HealthManager.cs" />
+     <Compile Include="Assets\Scripts\projectileDeleter.cs" />
      <Compile Include="Assets\Scripts\GoldPickup.cs" />
+     <Compile Include="Assets\Scripts\EnemyAiTutorial.cs" />
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\mousehover.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
+     <Compile Include="Assets\Scripts\HealPlayer.cs" />
      <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/SamPf/Documents/GitHub/PlatformerRepo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -622,6 +625,24 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>C:/Program Files/2020.1.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{C3BFB44F-BB7C-8ECC-5ED4-B4F9948C58E2}</Project>
+      <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{193F13C1-E2D8-40F7-5DDE-CF2CE3F2D6AA}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{AF8DB858-04BD-B946-EEE7-7D69C6C4D40D}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{FF78F229-F044-E101-06E3-40E3AB0497B7}</Project>
+      <Name>NavMeshComponentsExamples</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
