@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 55
+  controlID: 105
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 56
+  controlID: 78
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 57
+  controlID: 79
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,9 +398,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: e4390000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3eefffffb8efffff1ef2ffff62fbffffcc4b00001e4c0000
+      m_ExpandedIDs: 62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -513,9 +513,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.19919863, y: -0.72409713, z: 0.23355208, w: -0.6176218}
   m_Size:
-    m_Target: 36.329865
+    m_Target: 48.94136
     speed: 2
-    m_Value: 36.329865
+    m_Value: 48.94136
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -629,21 +629,21 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: 53
   m_LastProjectPath: C:\Users\SamPf\Documents\GitHub\PlatformerRepo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 58}
-    m_SelectedIDs: ce390000
-    m_LastClickedID: 14798
-    m_ExpandedIDs: 00000000a239000000ca9a3b
+    scrollPos: {x: 0, y: 74}
+    m_SelectedIDs: cc390000
+    m_LastClickedID: 14796
+    m_ExpandedIDs: 00000000cc390000dc39000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -671,7 +671,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a2390000
+    m_ExpandedIDs: 00000000cc390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
