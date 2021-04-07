@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
             temp.y = 0.5f;
             transform.localScale = temp;
             maxSpeed = 10f;
-            jumpForce = 5f;
+            //jumpForce = 5f;
         }
         else
         {
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
             temp.y = 1f;
             transform.localScale = temp;
             maxSpeed = 20f;
-            jumpForce = 10f;
+            //jumpForce = 10f;
         }
 
         // this is the part that checks whether or not to apply friction
