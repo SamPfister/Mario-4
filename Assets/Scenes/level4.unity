@@ -7121,7 +7121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   maxSpeed: 20
-  jumpForce: 20
+  jumpForce: 12
   playerGravity: {x: 0, y: -10, z: 0}
   newVel: {x: 0, y: 0, z: 0}
   isGrounded: 0

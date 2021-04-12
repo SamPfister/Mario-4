@@ -18,17 +18,18 @@ public class Player : MonoBehaviour
     public bool onWall;
     public int sceneToLoad;
 
-
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        Application.targetFrameRate = 60;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;
         playerBody = GetComponent<Rigidbody>();
         //this is what controls the gravity on the player
         playerGravity = new Vector3(0f, -5f, 0f);
-        moveSpeed = 100f;
-        maxSpeed = 20f;
-        jumpForce = 10f;
+        
         
     }
 
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            moveSpeed = 10f;
+                moveSpeed = 8f;
         }
 
 
@@ -103,8 +104,8 @@ public class Player : MonoBehaviour
     {
         if (applyFriction)
         {
-            // applying friction simply reduces the velocity by 5% each frame
-            playerBody.velocity -= 0.05f * playerBody.velocity;
+            // applying friction simply reduces the velocity by 10% each frame
+            playerBody.velocity -= 0.1f * playerBody.velocity;
         }
         if (speedBoosted)
         {
