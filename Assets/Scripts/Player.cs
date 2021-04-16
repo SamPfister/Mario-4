@@ -133,12 +133,12 @@ public class Player : MonoBehaviour
             //if they are holding left (on a lefthand wall), push them up and to the right
             if(Input.GetAxisRaw("Horizontal") < 0 && Input.GetButton("Jump"))
             {
-                playerBody.AddForce(Vector3.up * jumpForce*0.7f + (transform.right * jumpForce*0.5f), ForceMode.Impulse);
+                playerBody.AddForce(Vector3.up * jumpForce*0.5f + (transform.right * jumpForce*0.5f), ForceMode.Impulse);
             }
             //if they are holding right (on a righthand wall), push them up and to the left
             if (Input.GetAxisRaw("Horizontal") > 0 && Input.GetButton("Jump"))
             {
-                playerBody.AddForce(Vector3.up * jumpForce * 0.7f - (transform.right * jumpForce * 0.5f), ForceMode.Impulse);
+                playerBody.AddForce(Vector3.up * jumpForce * 0.5f - (transform.right * jumpForce * 0.5f), ForceMode.Impulse);
             }
         }
         playerBody.AddForce(newVel*2 + playerGravity);

@@ -69,7 +69,10 @@
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\mousehover.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
+     <None Include="Assets\WorldMaterialsFree\WorldMatLiteFree.shader" />
+     <None Include="Assets\WorldMaterialsFree\WorldMatFree.shader" />
      <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
+     <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/SamPf/Documents/GitHub/PlatformerRepo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
